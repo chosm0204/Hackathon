@@ -1,7 +1,7 @@
 import React from "react";
 
 const seung = () => {
-  return <div>seungmin</div>;
+  return <div>seungmin cho</div>;
 };
 
 export default seung;
