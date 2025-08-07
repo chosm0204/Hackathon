@@ -2,7 +2,7 @@ import React from 'react';
 
 const yang = () => {
     return (
-        <div>kgkgkgkgk
+        <div>kgkgkgsdasdasdasdasd
             
         </div>
     );
