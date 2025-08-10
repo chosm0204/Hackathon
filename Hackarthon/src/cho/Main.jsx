@@ -91,15 +91,15 @@ export default function Main() {
       >
         <form
           onSubmit={submit}
-          className="w-full h-full mx-auto rounded-[28px] border border-pink-200 bg-white/95 shadow-xl p-6 md:p-10"
+          className="w-full h-full rounded-[28px] border border-pink-200 bg-white/95 shadow-xl p-6 md:p-10"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
             {CATEGORIES.map(({ key, items }) => (
               <fieldset key={key}>
                 <legend className="text-lg md:text-xl font-semibold text-gray-800">
                   {key}
                 </legend>
-                <div className="mt-3 h-0.5 w-28 bg-pink-300 rounded-full" />
+                <div className="mt-3 h-0.5 w-28 bg-pink-300 rounded-full mx-auto" />
                 <div className="mt-5 space-y-4">
                   {items.map((label) => {
                     const id = `${key}-${label}`;
@@ -108,7 +108,7 @@ export default function Main() {
                       <label
                         key={id}
                         htmlFor={id}
-                        className="flex items-center gap-3 cursor-pointer"
+                        className="flex items-center gap-3 cursor-pointer ml-28"
                       >
                         <input
                           id={id}
