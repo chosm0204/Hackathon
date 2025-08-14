@@ -9,6 +9,9 @@ import Footer from "./yang/Footer";
 import Login from "./yang/Login";
 import Signup from "./yang/Signup";
 import Main from "./cho/Main";
+import Detail from "./yang/Detail";
+import Course from "./Kim/Course";
+
 
 const App = () => {
   return (
@@ -22,9 +25,12 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
+
         {/* 추가 페이지들 */}
         <Route path="/testpage" element={<Testpage />} />
         <Route path="/temporarily" element={<Temporarily />} />
+        <Route path="/detail" element={<Detail/>}/>
+        <Route path="/course" element={<Course/>}/>
       </Routes>
       <Footer />
     </>
