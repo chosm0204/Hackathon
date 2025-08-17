@@ -2,10 +2,10 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className='w-full pt-30 py-10 text-gray-400'>
-            <div className='px-10'>
+        <footer className=' bg-white w-full pt-30 py-10 text-gray-400'>
+            <div className='mt-[150px] m-[30px] px-10'>
             <div className='mb-6'>
-                <p className='flex text-sm'>(서비스) 사업자 정보</p>
+                <p className='flex font-bold'>(서비스) 사업자 정보</p>
             </div>
             <ul className='flex text-sm'>
                 <li  className='hover:underline '>
