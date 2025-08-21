@@ -10,10 +10,12 @@ import LoadingPage from "./Kim/LoadingPage";
 import Temporarily from "./Kim/Temporarily";
 import Detail from "./yang/Detail";
 import Course from "./Kim/Course";
+import ScrollTop from "./Kim/ScrollTop";
 
 const App = () => {
   return (
     <>
+      <ScrollTop/>
       <Header />
       <Routes>
         {/* Updated upstream 라우트 */}
@@ -22,7 +24,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
 
         {/* Stashed changes 라우트 */}
-        <Route path="/Loading" element={<LoadingPage />} />
+        <Route path="/LoadingPage" element={<LoadingPage />} />
         <Route path="/temporarily" element={<Temporarily />} />
 
         {/* Stashed changes 라우트 */}

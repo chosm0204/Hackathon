@@ -38,7 +38,7 @@ export default function Main() {
   const submit = (e) => {
     e.preventDefault();
     console.log("선택값:", form);
-    navigate("/temporarily");
+    navigate("/LoadingPage");
   };
 
   return (
