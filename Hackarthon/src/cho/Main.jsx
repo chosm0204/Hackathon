@@ -49,7 +49,7 @@ export default function Main() {
         alt=""
         className="fixed inset-0 w-full h-full object-cover -z-10"
       />
-      <div className="fixed inset-0 bg-white/30 backdrop-blur-[2px] -z-10" />
+      <div className="fixed inset-0 bg-white/30 backdrop-blur-[5px] -z-10" />
 
       {/* 섹션 1: 히어로 */}
       <section
@@ -75,7 +75,7 @@ export default function Main() {
           marginTop: -WHITE_OFFSET, // 첫 화면에서 위로 당겨 표시
         }}
       >
-        <div className="w-full h-full rounded-t-[48px] border border-pink-200 bg-white/95 shadow-xl p-6 md:p-10">
+        <div className="w-full h-full rounded-t-[48px] border border-pink-200 bg-white/80 shadow-xl p-6 md:p-10">
           <form onSubmit={submit} className="w-full">
             <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-60 items-start justify-items-center">
               {CATEGORIES.map(({ key, items }) => (
