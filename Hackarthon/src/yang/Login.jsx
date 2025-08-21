@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -22,9 +23,11 @@ const Login = () => {
 
                 </div>
                 <div className='mt-[100px] flex justify-center'>
+                    <Link to="/signup">
                 <button className='m-[25px] w-[250px] h-[70px] border border-[#E387A1] rounded-2xl  text-sm font-medium t bg-white hover:bg-pink-600'>
                     회원가입하기
                 </button>
+                </Link>
                 <button className='m-[25px] w-[250px] h-[70px] border rounded-2xl  text-sm font-medium text-white bg-[#E387A1] hover:bg-pink-600'>
                     로그인
                 </button>
