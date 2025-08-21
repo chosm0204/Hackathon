@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Signup = () => {
+    const navigate = useNavigate();
+    const handleGoBack = () => {
+    navigate(-1); 
+  };
     return (
         <div>
             <div className='mt-[100px] flex items-center justify-center p-8'>
@@ -31,8 +38,8 @@ const Signup = () => {
 
                 </div>
                 <div className='mt-[100px] flex justify-center'>
-                <button className='m-[25px] w-[250px] h-[70px] border border-[#E387A1] rounded-2xl  text-sm font-medium  bg-white hover:bg-pink-600'>
-                    돌아가기
+                <button className='m-[25px] w-[250px] h-[70px] border border-[#E387A1] rounded-2xl  text-sm font-medium  bg-white hover:bg-pink-600'onClick={handleGoBack} >
+                   돌아가기
                 </button>
                 <button className='m-[25px] w-[250px] h-[70px] border rounded-2xl  text-sm font-medium text-white bg-[#E387A1] hover:bg-pink-600'>
                     회원가입 완료하기
