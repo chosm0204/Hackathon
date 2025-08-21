@@ -2,7 +2,7 @@
 import React from "react";
 
 const Main4 = ({ selectedItems, onItemToggle }) => {
-  const options = ["카페", "한식", "중식", "양식", "기타"];
+  const options = ["카페", "한식", "중식", "양식", "일식", "기타"];
   const isSelected = (item) => selectedItems.includes(item);
 
   return (

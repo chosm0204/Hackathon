@@ -1,13 +1,13 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Temporarily from "./Kim/Temporarily";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Header from "./yang/Header";
-// import Footer from "./yang/Footer";
+import Footer from "./yang/Footer";
 import Login from "./yang/Login";
 import Signup from "./yang/Signup";
 import MainAll from "./cho/MainAll";
-import LoadingPage from "./Kim/LoadingPAge";
+import LoadingPage from "./Kim/LoadingPage";
+import Temporarily from "./Kim/Temporarily";
 import Detail from "./yang/Detail";
 import Course from "./Kim/Course";
 
@@ -29,6 +29,7 @@ const App = () => {
         <Route path="/Detail" element={<Detail />} />
         <Route path="/Course" element={<Course />} />
       </Routes>
+      <Footer />
     </>
   );
 };
