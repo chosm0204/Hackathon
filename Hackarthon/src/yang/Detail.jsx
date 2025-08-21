@@ -147,16 +147,7 @@ const Detail = () => {
         className="relative mb-[60px] cursor-pointer transition-all duration-300 flex"
       >
         {/* 왼쪽 원 + 세로선 */}
-        <div className="flex flex-col items-center mr-4 relative">
-          {/* 원 (번호 들어감) */}
-          <div className="w-8 h-8 rounded-full  border-2 border-gray-300 bg-gray-300 flex items-center justify-center z-10">
-            <span className="text-sm font-bold">{index + 1}</span>
-          </div>
-          {/* 세로선 (마지막 아이템은 선 없음) */}
-          {index !== routeData.length + 1 && (
-            <div className="flex-1 w-px bg-gray-300"></div>
-          )}
-        </div>
+        
 
         {/* 기존 카드 */}
         <div
