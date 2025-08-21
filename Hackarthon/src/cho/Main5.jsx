@@ -10,7 +10,7 @@ const Main5 = ({ onReset }) => {
   };
 
   const handleRecommend = () => {
-    navigate("/loading"); // 🚀 여기서 LoadingPage로 이동
+    navigate("/LoadingPage"); // 🚀 여기서 LoadingPage로 이동
   };
 
   return (
