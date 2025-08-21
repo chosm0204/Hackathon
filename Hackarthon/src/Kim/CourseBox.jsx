@@ -8,7 +8,7 @@ const CourseBox = ({ course, onDelete, disabledDelete, width = 500 }) => {
         >
         {/* 경로삭제 버튼: 오른쪽 상단, 오른쪽 여백 추가 */}
             <button
-                className={`absolute  right-4 text-gray-400 text-xs ${
+                className={`absolute right-4 text-gray-400 text-xs ${
                 disabledDelete ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
                 }`}
                 onClick={() => !disabledDelete && onDelete(course.id)}

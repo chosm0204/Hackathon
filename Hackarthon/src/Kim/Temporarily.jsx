@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import CourseBox from './CourseBox';
+import LoginModal from './LoginModal';
 
 const Temporarily = () => {
+    const [showLoginModal, setShowLoginModal] = useState(false); 
     const [courses, setCourses] = useState([
         { id: 1, title: '카페 아톨', category: '브런치', description: '추천 카페 소개~' },
         { id: 2, title: '성결공원', category: '공원', description: '추천 공원 소개~' },
@@ -61,6 +63,14 @@ const Temporarily = () => {
 
     return (
         <div className="mt-28 flex flex-col items-center">
+            {/* 배경 이미지 
+            <img
+                src="/img/map.png"
+                alt="배경 지도"
+                className="fixed inset-0 w-full h-full object-cover -z-10 opacity-40"
+            />
+                  <div className="fixed inset-0 bg-white/30 backdrop-blur-[5px] -z-10" />
+*/}
             <div>
                 <h1 className="mb-24 text-center text-xl font-bold">
                     안양토박이가 추천하는
@@ -80,7 +90,7 @@ const Temporarily = () => {
                                 style={{ top: positions[0] - 12 }}
                             > ●</div>
 
-                            {/* 출발지 텍스트: 마크 y축 동일, x축 오른쪽으로 이동 */}
+                            {/* 출발지 텍스트 */}
                             <div
                                 className="font-semibold text-sm select-none  absolute "
                                 style={{
@@ -91,7 +101,7 @@ const Temporarily = () => {
                             >
                             출발지<span className="mx-2">|</span>인덕원 </div>
 
-                            {/* 세로라인 (필요 시 조정 가능) */}
+                            {/* 세로라인  */}
                             <div
                                 className="border-l-2 border-gray-300 absolute left-1/2 transform -translate-x-1/2"
                                 style={{
@@ -113,13 +123,12 @@ const Temporarily = () => {
                     )}
                 </div>
 
-                {/* 오른쪽: 박스 리스트 영역 - 출발지 텍스트 바로 아래부터 자연스럽게 */}
+                {/* 오른쪽: 박스 리스트 영역 */}
                 <div
                 className={`flex flex-col ml-12 w-full max-w-[600px] mt-[60px] ${
                     courses.length === 6 ? 'space-y-10' : 'space-y-8'
                 } mb-12`}
                 >
-                    {/* 출발지 텍스트와 자연스럽게 이어지도록 mt 조절 */}
                     {courses.map((course, idx) => (
                         <React.Fragment key={course.id}>
                             <div ref={(el) => (boxRefs.current[idx] = el)}>
@@ -151,12 +160,16 @@ const Temporarily = () => {
                 전체 경로 새로 추천받기
                 </button>
                 <button
-                className="text-sm text-white px-4 py-2 rounded min-w-[180px] ml-3"
-                style={{ backgroundColor: '#E387A1' }}
+                className="text-sm text-white px-4 py-2 rounded min-w-[180px] ml-3 bg-[#E387A1]"
+                onClick={() => setShowLoginModal(true)}  
                 > 
                 추천 경로 확정하기
                 </button>
             </div>
+            {/* 로그인 모달 */}
+            {showLoginModal && (
+            <LoginModal onClose={() => setShowLoginModal(false)} />
+            )}
         </div>
     );
 };
