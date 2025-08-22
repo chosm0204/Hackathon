@@ -207,7 +207,7 @@ const Detail = () => {
                         <button 
                             onClick={() => setRecommendedRoute((prev) => !prev)}
                             className={`w-[200px] h-[50px] px-4 py-2 rounded-2xl border-2 transition-colors duration-300 text-sm 
-                                ${recommendedRoute ? 'bg-[#E387A1] text-white border-[#E387A1]' : 'bg-white text-[#E387A1] border-[#E387A1]'}`}
+                                ${recommendedRoute ? 'ml-[66px] bg-[#E387A1] text-white border-[#E387A1]' : 'bg-white text-[#E387A1] border-[#E387A1]'}`}
                         >
                             {recommendedRoute ? '추천 경로 한눈에 보기' : '추천 경로 한눈에 보기'}
                         </button>
