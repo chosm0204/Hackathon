@@ -4,31 +4,14 @@ import { useNavigate } from "react-router-dom";
 const LoadingPage = () => {
   const navigate = useNavigate();
 
-<<<<<<< HEAD
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate("/Temporarily");
             }, 3000); // 3초 후 자동 이동
-=======
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate("/Temporarily");
-    }, 5000); // 5초 후 자동 이동
->>>>>>> 46aba0c31dad4d43b7899a011abde2fdc5119543
 
     return () => clearTimeout(timer);
   }, [navigate]);
 
-<<<<<<< HEAD
-  return (
-    <div className="relative w-screen h-screen bg-cover bg-center">
-      {/* 배경 이미지 */}
-      <img
-        src="/img/map.png"
-        alt="배경 지도"
-        className="fixed inset-0 w-full h-full object-cover -z-10 opacity-40"
-      />
-=======
     return (
         <div className="relative w-full h-screen bg-cover bg-center">
             {/* 배경 이미지 */}
@@ -37,7 +20,6 @@ const LoadingPage = () => {
                 alt="배경 지도"
                 className="fixed inset-0 w-full h-full object-cover -z-10 opacity-40"
             />
->>>>>>> 12baf597efe40758179e9910eb7f6b01f3cb904b
 
       {/* 가운데 박스 */}
       <div className="absolute inset-0 flex items-center justify-center">
