@@ -5,6 +5,7 @@ import Main2 from "./Main2";
 import Main3 from "./Main3";
 import Main4 from "./Main4";
 import Main5 from "./Main5";
+import Main6 from "./Main6";
 
 const MainAll = () => {
   // 모든 선택 상태를 하나의 배열로 관리
@@ -47,6 +48,7 @@ const MainAll = () => {
       <Main2 selectedItems={selectedItems} onItemToggle={handleSingleSelect} />
       <Main3 selectedItems={selectedItems} onItemToggle={handleMultiSelect} />
       <Main4 selectedItems={selectedItems} onItemToggle={handleMultiSelect} />
+      <Main6 selectedItems={selectedItems} onItemToggle={handleSingleSelect} />
       <Main5
         onReset={handleReset}
         onRecommend={() => console.log("AI 추천 화면으로 이동!")}
