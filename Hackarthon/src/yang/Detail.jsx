@@ -164,7 +164,7 @@ const Detail = () => {
       }
 
       return activePlace && (
-        <div className="border border-[#E387A1] m-5 absolute bottom-6 left-6 bg-white rounded-xl p-[30px] shadow-lg w-[980px]">
+        <div className="border-[3px] border-[#E387A1] m-5 absolute bottom-6 left-6 bg-white rounded-xl p-[30px] shadow-lg w-[1000px]">
           <div className="flex items-start gap-5">
             <div className="w-[150px] h-[150px] bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
               {activePlace.image ? (<img src={activePlace.image} alt={activePlace.name} className="w-full h-full object-cover" />) : (<div></div>)}
@@ -196,11 +196,11 @@ const Detail = () => {
         <div className="flex h-screen overflow-hidden">
             <div className="w-[600px] p-8 border-r-2 border-[#E387A1] flex flex-col shadow-md">
                 <div className="mt-[80px] mb-[40px]">
-                    <h1 className="text-2xl font-bold flex justify-center ">안양토박이가 추천하는<br /></h1>
-                    <h1 className="text-2xl font-bold flex justify-center ">연인을 위한 안양 맛집 데이트</h1>
+                    <h1 className="text-2xl font-bold flex justify-center ">DayMaker가 추천하는<br /></h1>
+                    <h1 className="text-2xl font-bold flex justify-center ">OO님을 위한 안양 맛집 데이트</h1>
                 </div>
                 <div className="flex flex-col flex-grow overflow-y-auto pr-4">
-                    {recommendedRoute ? renderCourseItems() : renderRouteItems()}
+                    {recommendedRoute ? renderCourseItems() : renderRouteItems()}   
                 </div>
                 
                 <div className='flex justify-between items-center mt-8 gap-4'>

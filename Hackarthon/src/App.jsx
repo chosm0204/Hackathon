@@ -34,7 +34,7 @@ const App = () => {
 
         {/* Stashed changes 라우트 */}
         <Route path="/Detail" element={<Detail />} />
-        <Route path="/Course" element={<Course />} />
+        
         
 
       </Routes>

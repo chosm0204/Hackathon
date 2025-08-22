@@ -3,19 +3,27 @@ import React from 'react';
 
 
 
+
 const Header = () => {
     return (
         <header className='fixed z-50 top-0 left-0 w-full bg-white shadow-md'>
             <div className='flex justify-between items-center py-3 px-10'>
+                
                 <p className='font-bold text-[#E387A1]'>
                     <a href="https://www.youtube.com/watch?v=556qz9yf7zs&list=RD556qz9yf7zs&start_radio=1 "  target="_blank" >왜 만들었냐고?</a>
                     <br />
                 </p>
+                    {/* <a href="/"><img src="/img/ye1.png"  alt="logoIcon" className='w-[40px] mr-4'/></a>
+                    <a href="/"><img src="/img/ye.png"  alt="logoIcon" className='w-[40px] mr-4'/></a>
+                    <a href="/"><img src="/img/ye2.png"  alt="logoIcon" className='w-[40px] mr-4'/></a> */}
                 <div className='flex pr-[100px]'>
                 
                 <a href="/"><img src="/img/Vector.png"  alt="logoIcon" className='w-[40px] mr-4'/></a>
                 <a href="/"><img src="/img/DayMaker.png" alt="logoIcon" className='mt-[12px] w-[160px]'/></a>
                 </div>
+                {/* <a href="/"><img src="/img/ye1.png"  alt="logoIcon" className='w-[40px] mr-4'/></a>
+                <a href="/"><img src="/img/ye.png"  alt="logoIcon" className='w-[40px] mr-4'/></a>
+                <a href="/"><img src="/img/ye2.png"  alt="logoIcon" className='w-[40px] mr-4'/></a> */}
                 <p className='font-bold text-[#E387A1]'>
                     <a href="https://www.instagram.com/likelion_sku/" target="_blank">창조주들</a>
                     <br />
