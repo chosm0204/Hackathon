@@ -71,12 +71,13 @@ const Detail = () => {
                     onClick={() => toggleExpand(place.id)}
                     className="relative mb-[60px] cursor-pointer transition-all duration-300 flex items-center" // items-start -> items-center로 변경
                 >
+                    {/* 마크 */}
                     <div className="w-6 h-6 rounded-full bg-gray-400 border-2 border-gray-400 text-white flex items-center justify-center font-bold text-sm mr-4 flex-shrink-0">
                         {idx + 1}
                     </div>
                     <div
-                        className={`flex flex-col flex-grow px-5 py-4 rounded-xl border ${
-                            isExpanded ? "border-pink-500 border-2 shadow-md z-10 bg-white" : "border-[#E387A1]"
+                        className={`flex flex-col flex-grow px-5 py-3 rounded-xl border ${
+                            isExpanded ? "border-pink-500 border-[3px] shadow-md z-10 bg-white" : "border-[#E387A1] border-2"
                         }`}
                     >
                         <h3 className="text-2xl ">{place.name}</h3>
