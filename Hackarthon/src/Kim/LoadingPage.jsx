@@ -4,17 +4,10 @@ import { useNavigate } from "react-router-dom";
 const LoadingPage = () => {
   const navigate = useNavigate();
 
-<<<<<<< HEAD
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/Temporarily");
     }, 3000); // 3초 후 자동 이동
-=======
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            navigate("/Temporarily");
-            }, 3000); // 3초 후 자동 이동
->>>>>>> cf7be31d02523087be7922a326ab5287bbb8e757
 
     return () => clearTimeout(timer);
   }, [navigate]);
