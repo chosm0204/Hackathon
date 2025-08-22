@@ -24,13 +24,13 @@ const App = () => {
       <Routes>
         {/* Updated upstream 라우트 */}
         <Route path="/" element={<MainAll />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
 
         {/* Stashed changes 라우트 */}
         <Route path="/LoadingPage" element={<LoadingPage />} />
-        <Route path="/temporarily" element={<TemAll />} />
-        <Route path="/LoginMoadl" element={<LoginModal />} />
+        <Route path="/Temporarily" element={<TemAll />} />
+        <Route path="/LoginModal" element={<LoginModal />} />
 
         {/* Stashed changes 라우트 */}
         <Route path="/Detail" element={<Detail />} />

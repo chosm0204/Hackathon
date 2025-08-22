@@ -7,7 +7,7 @@ const LoadingPage = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate("/Temporarily");
-            }, 5000); // 5초 후 자동 이동
+            }, 3000); // 3초 후 자동 이동
 
             return () => clearTimeout(timer);
     }, [navigate]);
