@@ -13,6 +13,7 @@ import Course from "./Kim/Course";
 import ScrollTop from "./Kim/ScrollTop";
 import LoginModal from "./Kim/LoginModal";
 import ParkingPin from "./Kim/ParkingPin";
+import TimeLine from "./Kim/TimeLine";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         {/* Stashed changes 라우트 */}
         <Route path="/Detail" element={<Detail />} />
         <Route path="/Course" element={<Course />} />
+        <Route path="/TimeLine" element={<TimeLine />} />
         <Route path="/ParkingPin" element={<ParkingPin />} />
 
       </Routes>

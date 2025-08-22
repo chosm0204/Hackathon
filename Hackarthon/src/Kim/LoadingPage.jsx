@@ -13,7 +13,7 @@ const LoadingPage = () => {
     }, [navigate]);
 
     return (
-        <div className="relative w-screen h-screen bg-cover bg-center">
+        <div className="relative w-full h-screen bg-cover bg-center">
             {/* 배경 이미지 */}
             <img
                 src="/img/map.png"

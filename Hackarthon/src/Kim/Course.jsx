@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ParkingPin from './ParkingPin';
+import TimeLine from "./TimeLine";
 
 const confirmedCourses = [
     { id: 1, name: '카페 아톨', top: 200, left: 200 },
@@ -15,22 +16,20 @@ const Course = () => {
     return (
         <div className="flex pt-[75px] justify-center">
             {/* 왼쪽: 코스 리스트 */}
-            <div className="flex flex-col w-[800px] p-4 border pt-14">
+            <div className="flex flex-col w-[800px]  border pt-20">
+                {/* 제목 */}
                 <h2 className="text-lg font-bold mb-4 text-center">
                     안양토박이가 추천하는
                     <br />
                     연인을 위한 안양 맛집 데이트
                 </h2>
-                <ul className="list-decimal list-inside space-y-2 pt-10">
-                    {confirmedCourses.map((course) => (
-                        <li key={course.id} className="text-gray-700">
-                            {course.name}
-                        </li>
-                    ))}
-                </ul>
+                {/* 코스 리스트 */}
+                <div className="flex pt-[75px] justify-center">
+                    <TimeLine courses={confirmedCourses} />
+                </div>
 
                 {/* 하단 버튼 (주차장 핀 토글) */}
-                <div className="flex justify-end mt-4 relative">
+                <div className="flex justify-end mt-6 relative p-4">
                     <button
                         onClick={() => setShowParking((prev) => !prev)}
                         className={`px-4 py-2 rounded font-bold border-2 transition-colors duration-300 text-lg
@@ -45,7 +44,7 @@ const Course = () => {
             </div>
 
             {/* 오른쪽: 지도 + 코스 핀 */}
-            <div className="relative  border">
+            <div className="relative border">
                 {/* 지도 */}
                 <img
                     src="/img/Heongimg.jpg"
