@@ -12,6 +12,7 @@ const LoadingPage = () => {
     return () => clearTimeout(timer);
   }, [navigate]);
 
+<<<<<<< HEAD
   return (
     <div className="relative w-screen h-screen bg-cover bg-center">
       {/* 배경 이미지 */}
@@ -20,6 +21,16 @@ const LoadingPage = () => {
         alt="배경 지도"
         className="fixed inset-0 w-full h-full object-cover -z-10 opacity-40"
       />
+=======
+    return (
+        <div className="relative w-full h-screen bg-cover bg-center">
+            {/* 배경 이미지 */}
+            <img
+                src="/img/map.png"
+                alt="배경 지도"
+                className="fixed inset-0 w-full h-full object-cover -z-10 opacity-40"
+            />
+>>>>>>> 12baf597efe40758179e9910eb7f6b01f3cb904b
 
       {/* 가운데 박스 */}
       <div className="absolute inset-0 flex items-center justify-center">

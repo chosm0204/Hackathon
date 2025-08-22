@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import ParkingPin from './ParkingPin';
+import TimeLine from "./TimeLine";
+
+
+
 
 const confirmedCourses = [
-    { id: 1, name: '카페 아톨', top: 200, left: 200 },
-    { id: 2, name: '성결공원', top: 150, left: 300 },
-    { id: 3, name: '맛집 A', top: 250, left: 550 },
-    { id: 4, name: '카페 B', top: 180, left: 750 },
-    { id: 5, name: '공원 C', top: 230, left: 1000 },
+    { id: 1, name: '카페 아톨', type: '브랜치', rating: 4.4, description: '아늑한 분위기', address: '동안구', duration: '15분', parking: '주차 가능 (유료 / 1층 5대)', image: null, top: 200, left: 200 },
+    { id: 2, name: '성결공원', type: '편의시설', rating: 3.8, description: '강아지 산책로--', address: '동안구', duration: '15분', parking: '주차 가능 (무료)', image: null, top: 150, left: 300 },
+    { id: 3, name: '닭볶음탕집', type: '식당', rating: 4.7, description: '찐 현지맛집--', address: '동안구', duration: '15분', parking: '주차 가능', image: null, top: 250, left: 550 },
+    { id: 4, name: '안양시 플리마켓', type: '지역 축제', rating: 4.1, description: '볼거리 놀거리--', address: '동안구', duration: '15분', parking: '주차 가능', image: null, top: 180, left: 750 },
+    { id: 5, name: '포장마차', type: '식당', rating: 3.8, description: '옛 감성이 가득한 곳', address: '동안구', duration: '15분', parking: '주차 불가능', image: null, top: 230, left: 1000 },
+    { id: 6, name: '안양일번가', type: '쇼핑', rating: 4.5, description: '활기찬 번화가', address: '동안구', parking: '주차 가능', image: null },
 ];
 
 const Course = () => {
@@ -15,22 +20,20 @@ const Course = () => {
     return (
         <div className="flex pt-[75px] justify-center">
             {/* 왼쪽: 코스 리스트 */}
-            <div className="flex flex-col w-[800px] p-4 border pt-14">
+            <div className="flex flex-col w-[800px]  border pt-20">
+                {/* 제목 */}
                 <h2 className="text-lg font-bold mb-4 text-center">
                     안양토박이가 추천하는
                     <br />
                     연인을 위한 안양 맛집 데이트
                 </h2>
-                <ul className="list-decimal list-inside space-y-2 pt-10">
-                    {confirmedCourses.map((course) => (
-                        <li key={course.id} className="text-gray-700">
-                            {course.name}
-                        </li>
-                    ))}
-                </ul>
+                {/* 코스 리스트 */}
+                <div className="flex pt-[75px] justify-center">
+                    <TimeLine courses={confirmedCourses} />
+                </div>
 
                 {/* 하단 버튼 (주차장 핀 토글) */}
-                <div className="flex justify-end mt-4 relative">
+                <div className="flex justify-end mt-6 relative p-4">
                     <button
                         onClick={() => setShowParking((prev) => !prev)}
                         className={`px-4 py-2 rounded font-bold border-2 transition-colors duration-300 text-lg
@@ -45,7 +48,7 @@ const Course = () => {
             </div>
 
             {/* 오른쪽: 지도 + 코스 핀 */}
-            <div className="relative  border">
+            <div className="relative border">
                 {/* 지도 */}
                 <img
                     src="/img/Heongimg.jpg"

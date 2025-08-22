@@ -13,6 +13,8 @@ import Course from "./Kim/Course";
 import ScrollTop from "./Kim/ScrollTop";
 import LoginModal from "./Kim/LoginModal";
 import ParkingPin from "./Kim/ParkingPin";
+import TimeLine from "./Kim/TimeLine";
+import TemAll from "./Kim/TemAll";
 
 const App = () => {
   return (
@@ -27,13 +29,13 @@ const App = () => {
 
         {/* Stashed changes 라우트 */}
         <Route path="/LoadingPage" element={<LoadingPage />} />
-        <Route path="/temporarily" element={<Temporarily />} />
+        <Route path="/temporarily" element={<TemAll />} />
         <Route path="/LoginMoadl" element={<LoginModal />} />
 
         {/* Stashed changes 라우트 */}
         <Route path="/Detail" element={<Detail />} />
         <Route path="/Course" element={<Course />} />
-        <Route path="/ParkingPin" element={<ParkingPin />} />
+        
 
       </Routes>
       <Footer />

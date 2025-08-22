@@ -3,7 +3,7 @@ import React from 'react';
 const CourseBox = ({ course, onDelete, disabledDelete, width = 500 }) => {
     return (
         <div
-        className="relative bg-white rounded-lg border-2 border-[#E387A1] py-[14px]  pl-10 pr-10 shadow-md min-h-[130px]"
+        className="relative bg-white rounded-2xl border-2 border-[#E387A1] py-[14px]  pl-10 pr-10 shadow-md min-h-[130px]"
         style={{ width }}
         >
         {/* 경로삭제 버튼: 오른쪽 상단, 오른쪽 여백 추가 */}
