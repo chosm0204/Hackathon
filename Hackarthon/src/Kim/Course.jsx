@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import ParkingPin from './ParkingPin';
 import TimeLine from "./TimeLine";
 
+
+
+
 const confirmedCourses = [
-    { id: 1, name: '카페 아톨', top: 200, left: 200 },
-    { id: 2, name: '성결공원', top: 150, left: 300 },
-    { id: 3, name: '맛집 A', top: 250, left: 550 },
-    { id: 4, name: '카페 B', top: 180, left: 750 },
-    { id: 5, name: '공원 C', top: 230, left: 1000 },
+    { id: 1, name: '카페 아톨', type: '브랜치', rating: 4.4, description: '아늑한 분위기', address: '동안구', duration: '15분', parking: '주차 가능 (유료 / 1층 5대)', image: null, top: 200, left: 200 },
+    { id: 2, name: '성결공원', type: '편의시설', rating: 3.8, description: '강아지 산책로--', address: '동안구', duration: '15분', parking: '주차 가능 (무료)', image: null, top: 150, left: 300 },
+    { id: 3, name: '닭볶음탕집', type: '식당', rating: 4.7, description: '찐 현지맛집--', address: '동안구', duration: '15분', parking: '주차 가능', image: null, top: 250, left: 550 },
+    { id: 4, name: '안양시 플리마켓', type: '지역 축제', rating: 4.1, description: '볼거리 놀거리--', address: '동안구', duration: '15분', parking: '주차 가능', image: null, top: 180, left: 750 },
+    { id: 5, name: '포장마차', type: '식당', rating: 3.8, description: '옛 감성이 가득한 곳', address: '동안구', duration: '15분', parking: '주차 불가능', image: null, top: 230, left: 1000 },
+    { id: 6, name: '안양일번가', type: '쇼핑', rating: 4.5, description: '활기찬 번화가', address: '동안구', parking: '주차 가능', image: null },
 ];
 
 const Course = () => {

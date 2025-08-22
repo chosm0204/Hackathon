@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 const TimeLine = ({ courses, startPoint }) => {
     return (
         <div className="relative flex flex-col items-start">
@@ -25,7 +27,8 @@ const TimeLine = ({ courses, startPoint }) => {
                         {idx + 1}
                     </div>
                     {/* 텍스트 */}
-                    <p className="ml-12 text-gray-700">{course.name}</p>
+                    <p className="text-xl ml-12 text-gray-700 mr-[20px]">{course.name}</p> <div className="text-gray-500 text-sm">|</div>
+                    <span className="text-gray-500 ml-[20px] text-sm">{course.type}</span>
                 </div>
             ))}
         </div>
