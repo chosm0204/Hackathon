@@ -20,7 +20,7 @@ const Login = () => {
       localStorage.setItem("token", token);
 
       alert("로그인 성공!");
-      navigate("/Temporarily"); // 메인 페이지 등 원하는 경로로 이동
+      navigate("/Detail"); // 디테일 페이지 등 원하는 경로로 이동
     } catch (err) {
       console.error(err);
       setError("로그인 실패! 이메일과 비밀번호를 확인하세요.");
