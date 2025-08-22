@@ -1,4 +1,3 @@
-// src/Main2.jsx
 import React from "react";
 
 const Main2 = ({ selectedItems, onItemToggle }) => {
