@@ -19,7 +19,12 @@ const Main6 = ({ selectedItems, onItemToggle }) => {
   );
 
   return (
-    <div className="mt-28 text-[#6E811D] flex justify-end pr-28">
+    <div className="mt-28 text-[#113B60] flex justify-end pr-28 relative">
+      <img
+        src="/img/Background_Blue.png"
+        alt=""
+        className="pointer-events-none absolute -z-10 top-1/2 right-1 -translate-y-1/2 w-[900px] h-[1300px] object-contain opacity-95"
+      />
       <div>
         <h1 className="text-3xl font-extrabold mb-10 text-center">
           안양 지하철역 중 어디로 갈까요?
@@ -31,11 +36,11 @@ const Main6 = ({ selectedItems, onItemToggle }) => {
               onClick={() =>
                 onItemToggle(`transport_${station}`)
               } /* ✅ prefix 수정 */
-              className={`rounded-xl py-3 text-lg font-medium transition
+              className={`rounded-2xl py-3 text-lg font-semibold transition bg-white
                 ${
                   selectedStation === station
-                    ? "bg-[#7A9A32] text-white"
-                    : "border border-[#7A9A32] text-[#7A9A32] hover:bg-green-100"
+                    ? "bg-[#54789B] text-white"
+                    : "border-2 border-[#98ADD3] text-[#54789B] hover:bg-[#F2F6FB]"
                 }`}
             >
               {station}

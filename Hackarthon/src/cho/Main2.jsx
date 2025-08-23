@@ -29,11 +29,11 @@ const Main2 = ({ selectedItems, onItemToggle }) => {
               onClick={() =>
                 onItemToggle(`peopleCount_${option}`)
               } /* ✅ prefix 수정 */
-              className={`rounded-xl py-3 text-lg font-medium transition
+              className={`rounded-2xl py-3 text-lg font-semibold transition
                 ${
                   selectedOption === option
                     ? "bg-[#E387A1] text-white"
-                    : "border border-[#E387A1] hover:bg-pink-100"
+                    : "border-2 border-[#E387A1] hover:bg-pink-100"
                 }`}
             >
               {option}
