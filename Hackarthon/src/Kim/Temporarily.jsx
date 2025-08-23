@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseBox from "./CourseBox";
 import LoginModal from "./LoginModal";
-import Departure from "./Departure"; // Departure 컴포넌트 임포트
 
 const Temporarily = ({ courses: initialCourses, parkingData }) => {
   const navigate = useNavigate();
@@ -11,8 +10,10 @@ const Temporarily = ({ courses: initialCourses, parkingData }) => {
   const boxRefs = useRef([]);
   const [positions, setPositions] = useState([]);
 
-  // 이 컴포넌트의 부모인 TemAll에서 직접 Departure를 렌더링하므로,
-  // 여기서는 props로 받은 departure 정보는 사용하지 않습니다.
+  // 디버깅: props 확인
+  console.log("🔍 Temporarily - initialCourses:", initialCourses);
+  console.log("🔍 Temporarily - parkingData:", parkingData);
+  console.log("🔍 Temporarily - courses state:", courses);
 
   useEffect(() => {
     setCourses(initialCourses || []);
@@ -60,13 +61,58 @@ const Temporarily = ({ courses: initialCourses, parkingData }) => {
   };
 
   const handleConfirm = () => {
+    // Detail 페이지에서 예상하는 데이터 구조로 변환
+    const confirmedCourses = courses.map((course, index) => ({
+      id: course.id,
+      name: course.title, // title -> name 변경
+      title: course.title,
+      category: course.category,
+      type: course.category, // category -> type 추가
+      description: course.description,
+      address: course.address || "주소 정보 없음",
+      rating: course.rating || 4.5, // 기본값 설정
+      parking: course.parking || "주차 정보 없음",
+      latitude: course.latitude,
+      longitude: course.longitude,
+      top: course.top, // 좌표가 있다면 유지
+      left: course.left,
+      duration: `${index * 15 + 10}분`, // 예상 소요시간 추가
+      image: course.image, // 이미지가 있다면 유지
+    }));
+
+    console.log("🔍 Detail로 전달할 데이터:", confirmedCourses);
+
     navigate("/Detail", {
       state: {
-        confirmedCourses: courses,
+        confirmedCourses: confirmedCourses,
         parkingData: parkingData,
       },
     });
   };
+
+  // 디버깅: 코스가 없을 때 대체 UI
+  if (!courses || courses.length === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center bg-white p-8 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold text-[#AC4562] mb-4">
+            추천 코스를 준비중입니다
+          </h2>
+          <p className="text-gray-600 mb-4">코스 데이터가 없습니다.</p>
+          <div className="text-sm text-gray-400">
+            <p>initialCourses: {JSON.stringify(initialCourses)}</p>
+            <p>courses: {JSON.stringify(courses)}</p>
+          </div>
+          <button
+            onClick={() => (window.location.href = "/")}
+            className="mt-4 px-4 py-2 bg-[#E387A1] text-white rounded"
+          >
+            메인으로 돌아가기
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center">
