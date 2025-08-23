@@ -103,7 +103,7 @@ const MainAll = () => {
 
       console.log("✅ 추천 결과:", res.data);
 
-      // ✅ API 응답 데이터를 TemAll로 전달
+      // ✅ API 응답 데이터를 TemAll로 전달 (라우트 경로와 일치)
       navigate("/TemAll", {
         state: {
           result: res.data,

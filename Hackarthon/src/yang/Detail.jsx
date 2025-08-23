@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ParkingPin from "../Kim/ParkingPin";
 import TimeLine from "../Kim/TimeLine";
+import KakaoMap from "../cho/KakaoMap";
 
 const Detail = () => {
   const location = useLocation();
@@ -14,6 +15,23 @@ const Detail = () => {
   const [expandedItemId, setExpandedItemId] = useState(null);
   const [showParking, setShowParking] = useState(false);
   const [recommendedRoute, setRecommendedRoute] = useState(true);
+
+  // 디버그: 받아온 데이터 확인
+  useEffect(() => {
+    console.log("Detail 컴포넌트 데이터:", {
+      confirmedCourses,
+      parkingData,
+    });
+
+    // 각 코스의 위도/경도 확인
+    confirmedCourses.forEach((course, index) => {
+      console.log(`코스 ${index + 1} (${course.name}):`, {
+        latitude: course.latitude,
+        longitude: course.longitude,
+        hasCoords: !!(course.latitude && course.longitude),
+      });
+    });
+  }, [confirmedCourses, parkingData]);
 
   const activePlace = confirmedCourses.find(
     (place) => place.id === activePlaceId
@@ -29,6 +47,7 @@ const Detail = () => {
   };
 
   const handlePinClick = (id) => {
+    console.log("핀 클릭됨:", id);
     setRecommendedRoute(false);
     toggleExpand(id);
   };
@@ -73,7 +92,7 @@ const Detail = () => {
                         }`}
                         viewBox="0 0 20 20"
                       >
-                        <path d="M10 15l-5.878 3.09 1.176-6.545L.587 7.645l6.545-.943L10 1l2.868 5.702 6.545.943-4.705 4.09 1.176 6.545z" />
+                        <path d="M10 15l-5.878 3.09 1.176-6.645L.587 7.645l6.545-.943L10 1l2.868 5.702 6.545.943-4.705 4.09 1.176 6.545z" />
                       </svg>
                     ))}
                   </div>
@@ -113,54 +132,12 @@ const Detail = () => {
     return <TimeLine courses={confirmedCourses} />;
   };
 
-  const renderMapPins = () => {
-    if (!recommendedRoute) return null;
-    const coursesWithCoords = confirmedCourses.filter(
-      (place) => place.top && place.left
-    );
-    return (
-      <>
-        {coursesWithCoords.map((course, idx) => (
-          <div
-            key={course.id}
-            onClick={() => handlePinClick(course.id)}
-            className="absolute w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center font-bold select-none shadow-md cursor-pointer"
-            style={{
-              top: course.top,
-              left: course.left,
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            {idx + 1}
-          </div>
-        ))}
-        <svg className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          {coursesWithCoords.map((course, idx, arr) => {
-            if (idx === arr.length - 1) return null;
-            const next = arr[idx + 1];
-            return (
-              <line
-                key={idx}
-                x1={course.left}
-                y1={course.top}
-                x2={next.left}
-                y2={next.top}
-                stroke="#dc89d7ff"
-                strokeWidth="2"
-              />
-            );
-          })}
-        </svg>
-      </>
-    );
-  };
-
   const renderMapDetails = () => {
     if (recommendedRoute) return null;
     if (!activePlace) return null;
 
     return (
-      <div className="border border-[#E387A1] m-5 absolute bottom-6 left-6 bg-white rounded-xl p-[30px] shadow-lg w-[980px]">
+      <div className="border border-[#E387A1] m-5 absolute bottom-6 left-6 bg-white rounded-xl p-[30px] shadow-lg w-[980px] z-10">
         <div className="flex items-start gap-5">
           <div className="w-[150px] h-[150px] bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
             {activePlace.image ? (
@@ -170,7 +147,9 @@ const Detail = () => {
                 className="w-full h-full object-cover"
               />
             ) : (
-              <div></div>
+              <div className="w-full h-full flex items-center justify-center text-gray-400">
+                이미지 없음
+              </div>
             )}
           </div>
           <div className="flex-1">
@@ -215,6 +194,12 @@ const Detail = () => {
               <span className="font-semibold">주차 | </span>
               {activePlace.parking}
             </p>
+            {/* 디버그 정보 */}
+            {activePlace.latitude && activePlace.longitude && (
+              <p className="text-gray-500 text-xs mt-2">
+                좌표: {activePlace.latitude}, {activePlace.longitude}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -264,18 +249,18 @@ const Detail = () => {
         </div>
       </div>
       <div className="flex-1 relative">
-        <img
-          src="/img/Heongimg.jpg"
-          alt="map"
-          className="w-full h-auto object-cover"
+        <KakaoMap
+          courses={confirmedCourses}
+          parkingData={parkingData}
+          showParking={showParking}
+          onPinClick={handlePinClick}
+          activePlace={activePlace}
+          recommendedRoute={recommendedRoute}
         />
-        {renderMapPins()}
         {renderMapDetails()}
-        {recommendedRoute && showParking && (
-          <ParkingPin parkingData={parkingData} />
-        )}
       </div>
     </div>
   );
 };
+
 export default Detail;

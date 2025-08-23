@@ -12,6 +12,7 @@ import Course from "./Kim/Course";
 import ScrollTop from "./Kim/ScrollTop";
 import LoginModal from "./Kim/LoginModal";
 import TemAll from "./Kim/TemAll";
+import Temporarily from "./Kim/Temporarily";
 
 const App = () => {
   return (
@@ -30,7 +31,7 @@ const App = () => {
         <Route path="/LoadingPage" element={<LoadingPage />} />
         <Route path="/TemAll" element={<TemAll />} />{" "}
         {/* ✅ MainAll에서 navigate하는 경로와 일치 */}
-        <Route path="/Temporarily" element={<TemAll />} />{" "}
+        <Route path="/Temporarily" element={<Temporarily />} />{" "}
         {/* ✅ 기존 경로도 유지 (호환성) */}
         {/* 상세/코스 페이지 */}
         <Route path="/Detail" element={<Detail />} />
