@@ -38,7 +38,10 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
           </h1>
           <div className="mt-8 grid grid-cols-2 gap-4">
             {options.map((label, index) => {
-              const isOn = isSelected(label);
+              // ✅ prefix 붙이기
+              const value =
+                index === 0 ? `culture_${label}` : `cultures_${label}`;
+              const isOn = isSelected(value);
               const isLastItem = index === options.length - 1;
               const buttonContainerClass = isLastItem
                 ? "col-span-2 flex justify-center"
@@ -46,7 +49,7 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
               return (
                 <div key={label} className={buttonContainerClass}>
                   <button
-                    onClick={() => onItemToggle(label)}
+                    onClick={() => onItemToggle(value)}
                     aria-pressed={isOn}
                     className={`
                       px-7 py-3 rounded-2xl text-lg font-semibold transition

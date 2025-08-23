@@ -13,7 +13,7 @@ const Main2 = ({ selectedItems, onItemToggle }) => {
 
   // 현재 선택된 항목을 찾기
   const selectedOption = peopleOptions.find((option) =>
-    selectedItems.includes(`people_${option}`)
+    selectedItems.includes(`peopleCount_${option}`)
   );
 
   return (
@@ -26,7 +26,9 @@ const Main2 = ({ selectedItems, onItemToggle }) => {
           {peopleOptions.map((option) => (
             <button
               key={option}
-              onClick={() => onItemToggle(`people_${option}`)}
+              onClick={() =>
+                onItemToggle(`peopleCount_${option}`)
+              } /* ✅ prefix 수정 */
               className={`rounded-xl py-3 text-lg font-medium transition
                 ${
                   selectedOption === option

@@ -7,19 +7,16 @@ import Login from "./yang/Login";
 import Signup from "./yang/Signup";
 import MainAll from "./cho/MainAll";
 import LoadingPage from "./Kim/LoadingPage";
-import Temporarily from "./Kim/Temporarily";
 import Detail from "./yang/Detail";
 import Course from "./Kim/Course";
 import ScrollTop from "./Kim/ScrollTop";
 import LoginModal from "./Kim/LoginModal";
-import ParkingPin from "./Kim/ParkingPin";
-import TimeLine from "./Kim/TimeLine";
 import TemAll from "./Kim/TemAll";
 
 const App = () => {
   return (
     <>
-      <ScrollTop/>
+      <ScrollTop />
       <Header />
       <Routes>
         {/* Updated upstream 라우트 */}
@@ -29,14 +26,12 @@ const App = () => {
 
         {/* Stashed changes 라우트 */}
         <Route path="/LoadingPage" element={<LoadingPage />} />
-        <Route path="/temporarily" element={<TemAll />} />
-        <Route path="/LoginMoadl" element={<LoginModal />} />
+        <Route path="/Temporarily" element={<TemAll />} />
+        <Route path="/LoginModal" element={<LoginModal />} />
 
         {/* Stashed changes 라우트 */}
         <Route path="/Detail" element={<Detail />} />
         <Route path="/Course" element={<Course />} />
-        
-
       </Routes>
       <Footer />
     </>
