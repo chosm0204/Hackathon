@@ -21,8 +21,8 @@ const App = () => {
       <Routes>
         {/* Updated upstream 라우트 */}
         <Route path="/" element={<MainAll />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
 
         {/* Stashed changes 라우트 */}
         <Route path="/LoadingPage" element={<LoadingPage />} />
