@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CourseBox from "./CourseBox";
 import LoginModal from "./LoginModal";
 
-const Temporarily = () => {
+const Temporarily = ({ courses: initialCourses }) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [courses, setCourses] = useState([
     {
@@ -91,8 +91,6 @@ const Temporarily = () => {
                   }}
                 />
               ))}
-
-              {/* 마크 */}
               {positions.map((pos, idx) => (
                 <div
                   key={idx}

@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Main5 = ({ onReset }) => {
+const Main5 = ({ onReset, onRecommend }) => {
+  // ✅ onRecommend props 추가
   const navigate = useNavigate();
 
   const handleReset = () => {
@@ -9,8 +10,11 @@ const Main5 = ({ onReset }) => {
     else console.log("TODO: 선택 상태 초기화");
   };
 
-  const handleRecommend = () => {
-    navigate("/LoadingPage"); // 🚀 여기서 LoadingPage로 이동
+  const handleRecommend = async () => {
+    if (typeof onRecommend === "function") {
+      await onRecommend(); // ✅ MainAll의 handleRecommend 실행 (API 호출)
+    }
+    navigate("/LoadingPage"); // 🚀 호출 끝나면 LoadingPage로 이동
   };
 
   return (

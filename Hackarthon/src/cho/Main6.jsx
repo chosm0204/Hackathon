@@ -2,7 +2,7 @@
 import React from "react";
 
 const Main6 = ({ selectedItems, onItemToggle }) => {
-  // 안양 지하철역 7곳 (prefix: station_)
+  // 안양 지하철역 7곳 (prefix: transport_)
   const stationOptions = [
     "석수역",
     "관악역",
@@ -15,7 +15,7 @@ const Main6 = ({ selectedItems, onItemToggle }) => {
 
   // 현재 선택된 역 찾기
   const selectedStation = stationOptions.find((station) =>
-    selectedItems.includes(`station_${station}`)
+    selectedItems.includes(`transport_${station}`)
   );
 
   return (
@@ -28,7 +28,9 @@ const Main6 = ({ selectedItems, onItemToggle }) => {
           {stationOptions.map((station) => (
             <button
               key={station}
-              onClick={() => onItemToggle(`station_${station}`)}
+              onClick={() =>
+                onItemToggle(`transport_${station}`)
+              } /* ✅ prefix 수정 */
               className={`rounded-xl py-3 text-lg font-medium transition
                 ${
                   selectedStation === station
