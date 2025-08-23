@@ -10,10 +10,13 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://43.203.141.38:8080/api/users/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://43.203.141.38:8080/api/users/login",
+        {
+          email,
+          password,
+        }
+      );
 
       // 로그인 성공 시 토큰 저장
       const token = response.data.token;
