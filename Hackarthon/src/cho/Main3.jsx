@@ -5,7 +5,7 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
   const isSelected = (item) => selectedItems.includes(item);
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center ml-28">
+    <div className="min-h-screen max-w-full overflow-hidden flex items-center justify-center ml-28">
       <div className="w-full py-10 px-6 flex justify-between relative">
         <div className="relative hidden md:flex items-center justify-start">
           <div className="flex flex-col gap-6 w-[420px]">
@@ -30,7 +30,7 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
           <img
             src="/img/Background_Green.png"
             alt=""
-            className="absolute -z-10 w-[1200px] h-[1200px] object-contain opacity-70 blur-[1px] top-1/2 -translate-y-1/2 mr-48"
+            className="absolute -z-10 w-[1200px] h-[1000px] object-contain opacity-70 blur-[1px] top-1/2 -translate-y-1/2 mr-90"
           />
           <h1 className="text-3xl md:text-4xl font-extrabold leading-snug">
             문화생활은 필수죠! <br />
