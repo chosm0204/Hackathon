@@ -132,7 +132,7 @@ const MainAll = () => {
 
   return (
     <div>
-      {/* 로딩 오버레이
+      로딩 오버레이
       {isLoading && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-8 flex flex-col items-center">
@@ -142,7 +142,7 @@ const MainAll = () => {
             </p>
           </div>
         </div>
-      )} */}
+      )}
 
       <Main1 />
       <Main2 selectedItems={selectedItems} onItemToggle={handleSingleSelect} />
@@ -152,7 +152,7 @@ const MainAll = () => {
       <Main5
         onReset={handleReset}
         onRecommend={handleRecommend}
-        // isLoading={isLoading} // 로딩 상태 전달
+        isLoading={isLoading} // 로딩 상태 전달
       />
     </div>
   );
