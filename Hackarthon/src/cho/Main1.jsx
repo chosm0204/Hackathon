@@ -17,7 +17,7 @@ const Main1 = () => {
           먹을거리부터 즐길거리까지,
         </p>
         <p className="mt-5 text-4xl font-semibold text-center">
-          DayMaker가 추천하는 하루를 경험해보세요!
+          DayMaker가 추천하는 하루 코스를 만나보세요!
         </p>
         <div className="flex items-center justify-center h-screen">
           <img

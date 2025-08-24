@@ -21,12 +21,14 @@ const Main4 = ({ selectedItems, onItemToggle }) => {
             취향에 맞게 추천해드립니다.
           </p>
           <div className="mt-8 grid grid-cols-3 gap-4">
-            {options.map((label) => {
-              const isOn = isSelected(label);
+            {options.map((label, index) => {
+              // ✅ 첫 번째 선택은 대표 food, 나머지는 foods
+              const value = index === 0 ? `food_${label}` : `foods_${label}`;
+              const isOn = isSelected(value);
               return (
                 <button
                   key={label}
-                  onClick={() => onItemToggle(label)}
+                  onClick={() => onItemToggle(value)}
                   aria-pressed={isOn}
                   className={`
                     px-7 py-3 rounded-2xl text-lg font-semibold transition

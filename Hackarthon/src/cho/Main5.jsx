@@ -1,16 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
-const Main5 = ({ onReset }) => {
-  const navigate = useNavigate();
-
+const Main5 = ({ onReset, onRecommend, isLoading }) => {
   const handleReset = () => {
     if (typeof onReset === "function") onReset();
     else console.log("TODO: 선택 상태 초기화");
   };
 
-  const handleRecommend = () => {
-    navigate("/LoadingPage"); // 🚀 여기서 LoadingPage로 이동
+  const handleRecommend = async () => {
+    if (typeof onRecommend === "function") {
+      await onRecommend(); // API 호출 및 페이지 이동을 MainAll에서 처리
+    }
   };
 
   return (
@@ -27,10 +26,12 @@ const Main5 = ({ onReset }) => {
           <button
             type="button"
             onClick={handleReset}
+            disabled={isLoading}
             className="group h-14 px-8 rounded-2xl border-2 border-[#E387A1] text-[#E387A1] bg-white
                        font-semibold flex items-center gap-3 shadow-sm
                        hover:bg-pink-50 active:scale-95
-                       focus:outline-none focus:ring-2 focus:ring-[#E387A1]/30"
+                       focus:outline-none focus:ring-2 focus:ring-[#E387A1]/30
+                       disabled:opacity-50 disabled:cursor-not-allowed"
           >
             초기화
           </button>
@@ -39,11 +40,21 @@ const Main5 = ({ onReset }) => {
           <button
             type="button"
             onClick={handleRecommend}
+            disabled={isLoading}
             className="h-14 px-8 rounded-2xl bg-[#E387A1] text-white font-semibold
                        shadow-md hover:brightness-95 active:scale-95
-                       focus:outline-none focus:ring-2 focus:ring-[#E387A1]/40"
+                       focus:outline-none focus:ring-2 focus:ring-[#E387A1]/40
+                       disabled:opacity-50 disabled:cursor-not-allowed
+                       flex items-center gap-2"
           >
-            AI 추천받기
+            {isLoading ? (
+              <>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                추천 중...
+              </>
+            ) : (
+              "AI 추천받기"
+            )}
           </button>
         </div>
       </section>

@@ -1,4 +1,3 @@
-// src/Main3.jsx
 import React from "react";
 
 const Main3 = ({ selectedItems, onItemToggle }) => {
@@ -6,7 +5,7 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
   const isSelected = (item) => selectedItems.includes(item);
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center ml-28">
+    <div className="min-h-screen max-w-full overflow-hidden flex items-center justify-center ml-28">
       <div className="w-full py-10 px-6 flex justify-between relative">
         <div className="relative hidden md:flex items-center justify-start">
           <div className="flex flex-col gap-6 w-[420px]">
@@ -31,7 +30,7 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
           <img
             src="/img/Background_Green.png"
             alt=""
-            className="absolute -z-10 w-[1200px] h-[1200px] object-contain opacity-70 blur-[1px] top-1/2 -translate-y-1/2 mr-48"
+            className="absolute -z-10 w-[1200px] h-[1000px] object-contain opacity-70 blur-[1px] top-1/2 -translate-y-1/2 mr-90"
           />
           <h1 className="text-3xl md:text-4xl font-extrabold leading-snug">
             문화생활은 필수죠! <br />
@@ -39,7 +38,10 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
           </h1>
           <div className="mt-8 grid grid-cols-2 gap-4">
             {options.map((label, index) => {
-              const isOn = isSelected(label);
+              // ✅ prefix 붙이기
+              const value =
+                index === 0 ? `culture_${label}` : `cultures_${label}`;
+              const isOn = isSelected(value);
               const isLastItem = index === options.length - 1;
               const buttonContainerClass = isLastItem
                 ? "col-span-2 flex justify-center"
@@ -47,7 +49,7 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
               return (
                 <div key={label} className={buttonContainerClass}>
                   <button
-                    onClick={() => onItemToggle(label)}
+                    onClick={() => onItemToggle(value)}
                     aria-pressed={isOn}
                     className={`
                       px-7 py-3 rounded-2xl text-lg font-semibold transition

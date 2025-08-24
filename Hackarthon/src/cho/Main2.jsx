@@ -1,4 +1,3 @@
-// src/Main2.jsx
 import React from "react";
 
 const Main2 = ({ selectedItems, onItemToggle }) => {
@@ -14,7 +13,7 @@ const Main2 = ({ selectedItems, onItemToggle }) => {
 
   // 현재 선택된 항목을 찾기
   const selectedOption = peopleOptions.find((option) =>
-    selectedItems.includes(`people_${option}`)
+    selectedItems.includes(`peopleCount_${option}`)
   );
 
   return (
@@ -27,12 +26,14 @@ const Main2 = ({ selectedItems, onItemToggle }) => {
           {peopleOptions.map((option) => (
             <button
               key={option}
-              onClick={() => onItemToggle(`people_${option}`)}
-              className={`rounded-xl py-3 text-lg font-medium transition
+              onClick={() =>
+                onItemToggle(`peopleCount_${option}`)
+              } /* ✅ prefix 수정 */
+              className={`rounded-2xl py-3 text-lg font-semibold transition
                 ${
                   selectedOption === option
                     ? "bg-[#E387A1] text-white"
-                    : "border border-[#E387A1] hover:bg-pink-100"
+                    : "border-2 border-[#E387A1] hover:bg-pink-100"
                 }`}
             >
               {option}
