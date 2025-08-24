@@ -15,6 +15,8 @@ const Detail = () => {
   const [expandedItemId, setExpandedItemId] = useState(null);
   const [showParking, setShowParking] = useState(false);
   const [recommendedRoute, setRecommendedRoute] = useState(true);
+  const [nearbyParkingList, setNearbyParkingList] = useState([]); // 검색된 주차장 목록
+  const [selectedParking, setSelectedParking] = useState(null); // 선택된 주차장
 
   // 디버그: 받아온 데이터 확인
   useEffect(() => {
@@ -50,6 +52,23 @@ const Detail = () => {
     console.log("핀 클릭됨:", id);
     setRecommendedRoute(false);
     toggleExpand(id);
+  };
+
+  // 주차장 목록 업데이트 핸들러
+  const handleParkingListUpdate = (parkingList) => {
+    console.log("주차장 목록 업데이트:", parkingList);
+    setNearbyParkingList(parkingList);
+  };
+
+  // 주차장 항목 클릭 핸들러
+  const handleParkingClick = (parking) => {
+    if (selectedParking?.id === parking.id) {
+      // 같은 주차장 클릭시 선택 해제 (전체 보기)
+      setSelectedParking(null);
+    } else {
+      // 다른 주차장 선택
+      setSelectedParking(parking);
+    }
   };
 
   const renderRouteItems = () => {
@@ -130,6 +149,71 @@ const Detail = () => {
 
   const renderCourseItems = () => {
     return <TimeLine courses={confirmedCourses} />;
+  };
+
+  // 주차장 목록 렌더링
+  const renderParkingList = () => {
+    if (!showParking || nearbyParkingList.length === 0) return null;
+
+    return (
+      <div className="mt-6 border-t-2 border-[#E387A1] pt-6">
+        <h3 className="text-lg font-bold mb-4 flex items-center">
+          🅿️ 주변 주차장 ({nearbyParkingList.length}개)
+        </h3>
+        <div className="max-h-64 overflow-y-auto pr-2">
+          <div
+            onClick={() => setSelectedParking(null)}
+            className={`p-3 mb-3 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+              selectedParking === null
+                ? "border-green-500 bg-green-50"
+                : "border-gray-200 hover:border-green-300 hover:bg-gray-50"
+            }`}
+          >
+            <div className="flex items-center justify-center">
+              <h4 className="font-semibold text-sm text-gray-800 flex items-center">
+                <span className="bg-green-500 text-white text-xs px-3 py-1 rounded mr-2">
+                  전체
+                </span>
+                모든 주차장 보기 ({nearbyParkingList.length}개)
+              </h4>
+            </div>
+          </div>
+          {nearbyParkingList.map((parking, index) => (
+            <div
+              key={parking.id}
+              onClick={() => handleParkingClick(parking)}
+              className={`p-3 mb-3 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+                selectedParking?.id === parking.id
+                  ? "border-red-500 bg-red-50"
+                  : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
+              }`}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <h4 className="font-semibold text-sm text-gray-800 flex items-center">
+                  <span
+                    className={`text-white text-xs px-2 py-1 rounded mr-2 ${
+                      selectedParking?.id === parking.id
+                        ? "bg-red-500"
+                        : "bg-blue-500"
+                    }`}
+                  >
+                    P
+                  </span>
+                  {parking.name}
+                </h4>
+                <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                  {parking.distance}m
+                </span>
+              </div>
+              <p className="text-xs text-gray-600 mb-1">📍 {parking.address}</p>
+              {parking.phone && (
+                <p className="text-xs text-blue-600">📞 {parking.phone}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   const renderMapDetails = () => {
@@ -220,6 +304,8 @@ const Detail = () => {
         </div>
         <div className="flex flex-col flex-grow overflow-y-auto pr-4">
           {recommendedRoute ? renderCourseItems() : renderRouteItems()}
+          {/* 주차장 목록 추가 */}
+          {renderParkingList()}
         </div>
         <div className="flex justify-between items-center mt-8 gap-4">
           <div className="flex-grow flex justify-center">
@@ -256,6 +342,8 @@ const Detail = () => {
           onPinClick={handlePinClick}
           activePlace={activePlace}
           recommendedRoute={recommendedRoute}
+          onParkingListUpdate={handleParkingListUpdate}
+          selectedParkingId={selectedParking?.id || null}
         />
         {renderMapDetails()}
       </div>
