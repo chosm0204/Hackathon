@@ -12,8 +12,14 @@ const Departure = ({ stationName }) => {
 
       {/* 출발지 */}
       <div className="flex items-center mt-12 relative z-10">
-        <div className="flex text-lg font-medium mr-4 bg-white border-[1.5px] border-gray-700 w-[500px] h-[50px] ml-[68px] justify-center items-center rounded-2xl">
-          {stationName}
+        <div className="flex text-lg font-medium mr-4 bg-white border-[1.5px] border-gray-700 w-[500px] h-[60px] ml-[68px] justify-between pl-[13px] items-center rounded-2xl">
+          {/* 출발지 텍스트 - 왼쪽 */}
+          <span className="font-medium text-lg">출발지:</span>
+
+          {/* 역 이름 - 가운데 */}
+          <span className="flex-grow text-center font-medium text-lg pr-[55px]">
+            {stationName}
+          </span>
         </div>
       </div>
 
