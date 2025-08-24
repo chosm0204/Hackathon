@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Main5 = ({ onReset, onRecommend, isLoading }) => {
+  const navigate = useNavigate();
+
   const handleReset = () => {
     if (typeof onReset === "function") onReset();
     else console.log("TODO: 선택 상태 초기화");
@@ -8,7 +11,8 @@ const Main5 = ({ onReset, onRecommend, isLoading }) => {
 
   const handleRecommend = async () => {
     if (typeof onRecommend === "function") {
-      await onRecommend(); // API 호출 및 페이지 이동을 MainAll에서 처리
+      navigate("/LoadingPage"); // ✅ 로딩 페이지로 먼저 이동
+      await onRecommend();  // API 호출 등은 MainAll에서 처리
     }
   };
 
