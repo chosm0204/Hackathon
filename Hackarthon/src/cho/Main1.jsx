@@ -11,7 +11,7 @@ const Main1 = () => {
 
       <section className="h-screen snap-start flex flex-col items-center justify-start pt-48 text-[#611128] relative z-10">
         <h1 className="text-4xl md:text-6xl font-extrabold text-center">
-          "오늘 하루, 안양에서 뭐할까?"
+          "오늘 하루, 뭐할까?"
         </h1>
         <p className="mt-20 text-4xl font-semibold text-center">
           먹을거리부터 즐길거리까지,
