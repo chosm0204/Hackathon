@@ -10,7 +10,6 @@ import LoadingPage from "./Kim/LoadingPage";
 import Detail from "./yang/Detail";
 import Course from "./Kim/Course";
 import ScrollTop from "./Kim/ScrollTop";
-import LoginModal from "./Kim/LoginModal";
 import TemAll from "./Kim/TemAll";
 import Temporarily from "./Kim/Temporarily";
 
@@ -36,8 +35,10 @@ const App = () => {
         {/* 상세/코스 페이지 */}
         <Route path="/Detail" element={<Detail />} />
         <Route path="/Course" element={<Course />} />
-        {/* 모달 (일반적으로 라우트로 설정하지 않음) */}
-        <Route path="/LoginModal" element={<LoginModal />} />
+
+        
+        
+
       </Routes>
       <Footer />
     </>

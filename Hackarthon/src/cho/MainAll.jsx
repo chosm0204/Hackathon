@@ -132,7 +132,7 @@ const MainAll = () => {
 
   return (
     <div>
-      {/* 로딩 오버레이 */}
+      로딩 오버레이
       {isLoading && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-8 flex flex-col items-center">
