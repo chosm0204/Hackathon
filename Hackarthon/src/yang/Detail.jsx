@@ -14,17 +14,15 @@ const Detail = () => {
   const [expandedItemId, setExpandedItemId] = useState(null);
   const [showParking, setShowParking] = useState(false);
   const [recommendedRoute, setRecommendedRoute] = useState(true);
-  const [nearbyParkingList, setNearbyParkingList] = useState([]); // 검색된 주차장 목록
-  const [selectedParking, setSelectedParking] = useState(null); // 선택된 주차장
+  const [nearbyParkingList, setNearbyParkingList] = useState([]);
+  const [selectedParking, setSelectedParking] = useState(null);
 
-  // 디버그: 받아온 데이터 확인
   useEffect(() => {
     console.log("Detail 컴포넌트 데이터:", {
       confirmedCourses,
       parkingData,
     });
 
-    // 각 코스의 위도/경도 확인
     confirmedCourses.forEach((course, index) => {
       console.log(`코스 ${index + 1} (${course.name}):`, {
         latitude: course.latitude,
@@ -53,19 +51,15 @@ const Detail = () => {
     toggleExpand(id);
   };
 
-  // 주차장 목록 업데이트 핸들러
   const handleParkingListUpdate = (parkingList) => {
     console.log("주차장 목록 업데이트:", parkingList);
     setNearbyParkingList(parkingList);
   };
 
-  // 주차장 항목 클릭 핸들러
   const handleParkingClick = (parking) => {
     if (selectedParking?.id === parking.id) {
-      // 같은 주차장 클릭시 선택 해제 (전체 보기)
       setSelectedParking(null);
     } else {
-      // 다른 주차장 선택
       setSelectedParking(parking);
     }
   };
@@ -150,7 +144,6 @@ const Detail = () => {
     return <TimeLine courses={confirmedCourses} />;
   };
 
-  // 주차장 목록 렌더링
   const renderParkingList = () => {
     if (!showParking || nearbyParkingList.length === 0) return null;
 
@@ -221,69 +214,49 @@ const Detail = () => {
 
     return (
       <div className="border border-[#E387A1] m-5 absolute bottom-6 left-6 bg-white rounded-xl p-[30px] shadow-lg w-[980px] z-10">
-        <div className="flex items-start gap-5">
-          <div className="w-[150px] h-[150px] bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
-            {activePlace.image ? (
-              <img
-                src={activePlace.image}
-                alt={activePlace.name}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-gray-400">
-                이미지 없음
-              </div>
-            )}
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <h2 className="text-4xl font-bold">{activePlace.name}</h2>
-                <span className="text-gray-400 text-base">|</span>
-                <span className="text-gray-600 font-semibold">
-                  {activePlace.type}
-                </span>
-              </div>
-              <div className="flex items-center gap-1 text-sm">
-                <span className="font-bold text-xl mr-1">
-                  {activePlace.rating}
-                </span>
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className={`w-7 h-7 fill-current ${
-                        i < Math.floor(activePlace.rating)
-                          ? "text-yellow-500"
-                          : "text-gray-300"
-                      }`}
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09 1.176-6.545L.587 7.645l6.545-.943L10 1l2.868 5.702 6.545.943-4.705 4.09 1.176 6.545z" />
-                    </svg>
-                  ))}
-                </div>
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <h2 className="text-4xl font-bold">{activePlace.name}</h2>
+              <span className="text-gray-400 text-base">|</span>
+              <span className="text-gray-600 font-semibold">
+                {activePlace.type}
+              </span>
+            </div>
+            <div className="flex items-center gap-1 text-sm">
+              <span className="font-bold text-xl mr-1">
+                {activePlace.rating}
+              </span>
+              <div className="flex items-center">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    className={`w-7 h-7 fill-current ${
+                      i < Math.floor(activePlace.rating)
+                        ? "text-yellow-500"
+                        : "text-gray-300"
+                    }`}
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M10 15l-5.878 3.09 1.176-6.545L.587 7.645l6.545-.943L10 1l2.868 5.702 6.545.943-4.705 4.09 1.176 6.545z" />
+                  </svg>
+                ))}
               </div>
             </div>
-            <p className="text-gray-700 text-sm mb-2">
-              <span className="font-semibold">소개 | </span>
-              {activePlace.description}
-            </p>
-            <p className="text-gray-700 text-sm mb-2">
-              <span className="font-semibold">주소 | </span>
-              {activePlace.address}
-            </p>
-            <p className="text-gray-700 text-sm">
-              <span className="font-semibold">주차 | </span>
-              {activePlace.parking}
-            </p>
-            {/* 디버그 정보 */}
-            {activePlace.latitude && activePlace.longitude && (
-              <p className="text-gray-500 text-xs mt-2">
-                좌표: {activePlace.latitude}, {activePlace.longitude}
-              </p>
-            )}
           </div>
+          <p className="text-gray-700 text-sm mb-2">
+            <span className="font-semibold">소개 | </span>
+            {activePlace.description}
+          </p>
+          <p className="text-gray-700 text-sm mb-2">
+            <span className="font-semibold">주소 | </span>
+            {activePlace.address}
+          </p>
+          {activePlace.latitude && activePlace.longitude && (
+            <p className="text-gray-500 text-xs mt-2">
+              좌표: {activePlace.latitude}, {activePlace.longitude}
+            </p>
+          )}
         </div>
       </div>
     );
@@ -294,7 +267,7 @@ const Detail = () => {
       <div className="w-[600px] p-8 border-r-2 border-[#E387A1] flex flex-col shadow-md">
         <div className="mt-[80px] mb-[40px]">
           <h1 className="text-2xl font-bold flex justify-center">
-            DayMaker가 추천하는 
+            DayMaker가 추천하는
             <br />
           </h1>
           <h1 className="text-2xl font-bold flex justify-center">
@@ -303,7 +276,6 @@ const Detail = () => {
         </div>
         <div className="flex flex-col flex-grow overflow-y-auto pr-4">
           {recommendedRoute ? renderCourseItems() : renderRouteItems()}
-          {/* 주차장 목록 추가 */}
           {renderParkingList()}
         </div>
         <div className="flex justify-between items-center mt-8 gap-4">

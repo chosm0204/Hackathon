@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom"; // ✅ BrowserRouter 제거
+import { Routes, Route, useLocation } from "react-router-dom"; // useLocation 추가
 import "./App.css";
 import Header from "./yang/Header";
 import Footer from "./yang/Footer";
@@ -13,12 +13,11 @@ import ScrollTop from "./Kim/ScrollTop";
 import TemAll from "./Kim/TemAll";
 import Temporarily from "./Kim/Temporarily";
 
-
 const App = () => {
+  const location = useLocation(); // ✅ 현재 경로 가져오기
+
   return (
     <>
-      {" "}
-      {/* ✅ BrowserRouter 제거 (index.js에서 이미 래핑됨) */}
       <ScrollTop />
       <Header />
       <Routes>
@@ -29,20 +28,15 @@ const App = () => {
         <Route path="/Signup" element={<Signup />} />
         {/* 추천 관련 페이지 */}
         <Route path="/LoadingPage" element={<LoadingPage />} />
-        <Route path="/TemAll" element={<TemAll />} />{" "}
-        {/* ✅ MainAll에서 navigate하는 경로와 일치 */}
-        <Route path="/Temporarily" element={<Temporarily />} />{" "}
-        {/* ✅ 기존 경로도 유지 (호환성) */}
+        <Route path="/TemAll" element={<TemAll />} />
+        <Route path="/Temporarily" element={<Temporarily />} />
         {/* 상세/코스 페이지 */}
         <Route path="/Detail" element={<Detail />} />
         <Route path="/Course" element={<Course />} />
-       
-
-        
-        
-
       </Routes>
-      <Footer />
+
+      {/* ✅ Detail 페이지일 때만 Footer 숨김 */}
+      {location.pathname !== "/Detail" && <Footer />}
     </>
   );
 };

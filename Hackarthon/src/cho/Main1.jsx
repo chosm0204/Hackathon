@@ -23,7 +23,7 @@ const Main1 = () => {
           <img
             src="/img/iMac.png"
             alt="목업"
-            className="w-[700px] h-auto object-contain"
+            className="w-[700px] h-auto object-contain -z-10"
           />
         </div>
       </section>
