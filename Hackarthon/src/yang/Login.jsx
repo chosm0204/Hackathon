@@ -19,7 +19,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://43.203.141.38:8080/api/users/login",
+        "https://daymaker.sku-sku.com/api/users/login",
         {
           email,
           password,
@@ -32,12 +32,11 @@ const Login = () => {
 
       // 성공 메시지 상태를 true로 설정합니다.
       setSuccess(true);
-      
+
       // 1초 후 메인 페이지로 이동합니다.
       setTimeout(() => {
         navigate("/");
       }, 1000);
-      
     } catch (err) {
       console.error("로그인 중 오류 발생:", err);
       // 로그인 실패 시 오류 메시지 상태를 업데이트합니다.
@@ -76,14 +75,16 @@ const Login = () => {
             />
           </div>
         </div>
-        
+
         {/* 로그인 성공/실패 메시지 표시 영역 */}
         {success && (
           <p className="text-green-500 text-center mt-4 font-bold">
             로그인 성공! 잠시 후 페이지를 이동합니다.
           </p>
         )}
-        {error && <p className="text-red-500 text-center mt-4 font-bold">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-center mt-4 font-bold">{error}</p>
+        )}
 
         <div className="mt-[100px] flex justify-center">
           <button
