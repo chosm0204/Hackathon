@@ -19,10 +19,10 @@ const Main2 = ({ selectedItems, onItemToggle }) => {
   return (
     <div className="px-28 mt-28 text-[#AC4562]">
       <h1 className="text-3xl font-extrabold mb-10">
-        몇 명이서 하루를 보낼 계획인가요?
+        오늘 하루를 함께할 인원은 몇 명인가요?
       </h1>
       <div className="flex justify-between items-start">
-        <div className="grid grid-cols-2 gap-6 w-96 ml-9">
+        <div className="grid grid-cols-2 gap-6 w-96 ml-16">
           {peopleOptions.map((option) => (
             <button
               key={option}

@@ -294,11 +294,11 @@ const Detail = () => {
       <div className="w-[600px] p-8 border-r-2 border-[#E387A1] flex flex-col shadow-md">
         <div className="mt-[80px] mb-[40px]">
           <h1 className="text-2xl font-bold flex justify-center">
-            안양토박이가 추천하는
+            DayMaker가 추천하는 
             <br />
           </h1>
           <h1 className="text-2xl font-bold flex justify-center">
-            연인을 위한 안양 맛집 데이트
+            안양에서 보내는 알찬 하루 모험
           </h1>
         </div>
         <div className="flex flex-col flex-grow overflow-y-auto pr-4">

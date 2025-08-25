@@ -33,8 +33,8 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
             className="absolute -z-10 w-[1200px] h-[1000px] object-contain opacity-70 blur-[1px] top-1/2 -translate-y-1/2 mr-90"
           />
           <h1 className="text-3xl md:text-4xl font-extrabold leading-snug">
-            문화생활은 필수죠! <br />
-            즐길 거리를 골라보세요.
+            하루를 특별하게!<br />
+            마음에 드는 활동을 골라보세요.
           </h1>
           <div className="mt-8 grid grid-cols-2 gap-4">
             {options.map((label, index) => {
