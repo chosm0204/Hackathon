@@ -13,7 +13,7 @@ const Main4 = ({ selectedItems, onItemToggle }) => {
         className="pointer-events-none absolute -z-10 left-0 top-1/2 -translate-y-1/2 w-[500px] h-[1300px] object-contain opacity-95"
       />
       <div className="w-full py-10 px-6 flex justify-between relative">
-        <div className="flex-1 flex flex-col items-start text-left text-[#7A4C33] ml-60 mt-10">
+        <div className="flex-1 flex flex-col items-start text-left text-[#7A4C33] ml-[120px] mt-10">
           <h1 className="text-3xl md:text-4xl font-extrabold leading-snug">
             원하는 먹거리를 선택하세요.
           </h1>
@@ -45,6 +45,14 @@ const Main4 = ({ selectedItems, onItemToggle }) => {
             })}
           </div>
         </div>
+          {/* 이미지 */}
+          <div className="flex-1 flex justify-center items-center ml-[80px]">
+            <img
+              src="/img/food.png"
+              alt="음식 일러스트"
+              className="w-[470px] h-auto object-contain"
+            />
+          </div>
       </div>
     </div>
   );

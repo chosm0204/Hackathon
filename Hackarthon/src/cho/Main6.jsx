@@ -25,27 +25,39 @@ const Main6 = ({ selectedItems, onItemToggle }) => {
         alt=""
         className="pointer-events-none absolute -z-10 top-1/2 right-1 -translate-y-1/2 w-[800px] h-[1100px] object-contain opacity-95"
       />
-      <div>
-        <h1 className="text-3xl font-extrabold mb-10 text-center">
-          안양 지하철역 중 어디로 갈까요?
-        </h1>
-        <div className="grid grid-cols-3 gap-6 w-[600px]">
-          {stationOptions.map((station) => (
-            <button
-              key={station}
-              onClick={() =>
-                onItemToggle(`transport_${station}`)
-              } /* ✅ prefix 수정 */
-              className={`rounded-2xl py-3 text-lg font-semibold transition border-2
-  ${
-    selectedStation === station
-      ? "bg-[#54789B] border-[#54789B] text-white"
-      : "border-[#98ADD3] text-[#54789B] hover:bg-[#D6E3F3]"
-  }`}
-            >
-              {station}
-            </button>
-          ))}
+
+      {/* flex 레이아웃 */}
+      <div className="flex items-center gap-16">
+        {/* 왼쪽 이미지 */}
+        <div className="flex-1 flex justify-center items-center mr-[350px] ">
+          <img
+            src="/img/main66666.png"
+            alt="역 일러스트"
+            className="w-[470px] h-[350px] object-contain"
+          />
+        </div>
+
+        {/* 오른쪽 버튼 영역 */}
+        <div className="flex-1 flex flex-col items-center">
+          <h1 className="text-3xl font-extrabold mb-10 text-center">
+            하루 여정을 시작할 역을 골라주세요!
+          </h1>
+          <div className="grid grid-cols-3 gap-6 w-[600px]">
+            {stationOptions.map((station) => (
+              <button
+                key={station}
+                onClick={() => onItemToggle(`transport_${station}`)}
+                className={`rounded-2xl py-3 text-lg font-semibold transition border-2
+                  ${
+                    selectedStation === station
+                      ? "bg-[#54789B] border-[#54789B] text-white"
+                      : "border-[#98ADD3] text-[#54789B] hover:bg-[#D6E3F3]"
+                  }`}
+              >
+                {station}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
