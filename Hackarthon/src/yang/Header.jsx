@@ -44,7 +44,7 @@ const Header = () => {
       <div className='flex justify-between items-center py-3 px-10'>
         
         <p className='font-bold text-[#E387A1]'>
-          <a href="https://www.youtube.com/watch?v=556qz9yf7zs&list=RD556qz9yf7zs&start_radio=1 " target="_blank" rel="noopener noreferrer">왜 만들었냐고?</a>
+          <a href="/Why">왜 만들었냐고?</a>
           <br />
         </p>
         <div className='flex pr-[100px]'>
