@@ -29,7 +29,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://43.203.141.38:8080/api/users/register",
+        "https://daymaker.sku-sku.com/api/users/register",
         // "/api/users/register"
         {
           email: formData.email,

@@ -97,7 +97,7 @@ const MainAll = () => {
       console.log("🚀 API 요청 데이터:", body);
 
       const res = await axios.post(
-        "http://43.203.141.38:8080/api/itineraries",
+        "https://daymaker.sku-sku.com/api/itineraries",
         body
       );
 
@@ -143,7 +143,6 @@ const MainAll = () => {
           </div>
         </div>
       )}
-
       <Main1 />
       <Main2 selectedItems={selectedItems} onItemToggle={handleSingleSelect} />
       <Main3 selectedItems={selectedItems} onItemToggle={handleMultiSelect} />
