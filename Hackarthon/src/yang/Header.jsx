@@ -63,7 +63,7 @@ const Header = () => {
         </button>
       </div>
 
-      <div className={`fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`rounded-lg fixed top-0 right-0 w-64 h-auto bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className='flex justify-end p-4'>
           <button onClick={toggleMenu} className='text-gray-500 hover:text-[#E387A1]' aria-label="Close menu">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,26 +71,46 @@ const Header = () => {
             </svg>
           </button>
         </div>
-        <ul className='flex flex-col items-center font-bold space-y-6 mt-10'>
+        <ul className='flex flex-col justify-center items-center font-bold space-y-6 '>
+          
           {/* 로그인 상태에 따라 다른 메뉴를 표시합니다. */}
           {isLoggedIn ? (
-              <li className='w-full'>
-                <button onClick={handleLogout} className='block w-full text-center text-[#E387A1] hover:bg-gray-100 py-4 transition-colors duration-200'>
+              <li className='w-full px-[20px]'>
+                <div className='flex'>
+          <a href="/"><img src="/img/Vector.png" alt="logoIcon" className='w-[40px] mr-1'/></a>
+          <a href="/"><img src="/img/DayMaker.png" alt="logoIcon" className='mt-[12px] w-[160px]'/></a>
+        </div>
+                
+                <button onClick={handleLogout} className='mt-[20px] rounded-lg border border-[#E387A1] block w-full text-center text-[#E387A1] hover:bg-[#E387A1] hover:text-white py-4 transition-colors duration-200'>
                   로그아웃
                 </button>
+              <button>
+                
+              </button>
               </li>
+              
           ) : (
               <>
-                <li className='w-full'>
-                  <Link to="/login" onClick={toggleMenu} className='block text-center text-[#E387A1] hover:bg-gray-100 py-4 transition-colors duration-200'>
+                <li className='w-full px-[20px]'>
+                  <div className='flex '>
+          <a href="/"><img src="/img/Vector.png" alt="logoIcon" className='w-[40px] mr-1'/></a>
+          <a href="/"><img src="/img/DayMaker.png" alt="logoIcon" className='mt-[12px] w-[160px]'/></a>
+        </div>
+                  <Link to="/login" onClick={toggleMenu} className='mt-[20px] rounded-lg border border-[#E387A1] block w-full text-center text-[#E387A1] hover:bg-[#E387A1] hover:text-white    py-4 transition-colors duration-200'>
                     로그인
                   </Link>
                 </li>
-                <li className='w-full'>
-                  <Link to="/signup" onClick={toggleMenu} className='block text-center text-[#E387A1] hover:bg-gray-100 py-4 transition-colors duration-200'>
+                <li className='w-full px-[20px]'>
+                  <Link to="/signup" onClick={toggleMenu} className='rounded-lg  border border-[#E387A1] block w-full text-center text-[#E387A1] hover:bg-[#E387A1] hover:text-white py-4 transition-colors duration-200'>
                     회원가입
                   </Link>
                 </li>
+                <li>
+                  
+                </li>
+                {/* <div className=' text-sm text-gray-400'>
+                <a href='https://www.instagram.com/likelion_sku/'  target="_blank" rel="noopener noreferrer">창조주들</a>
+                </div> */}
               </>
           )}
         </ul>
