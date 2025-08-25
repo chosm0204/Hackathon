@@ -83,28 +83,7 @@ const Temporarily = ({ courses: initialCourses, parkingData }) => {
     });
   };
 
-  if (!courses || courses.length === 0) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold text-[#AC4562] mb-4">
-            추천 코스를 준비중입니다
-          </h2>
-          <p className="text-gray-600 mb-4">코스 데이터가 없습니다.</p>
-          <div className="text-sm text-gray-400">
-            <p>initialCourses: {JSON.stringify(initialCourses)}</p>
-            <p>courses: {JSON.stringify(courses)}</p>
-          </div>
-          <button
-            onClick={() => (window.location.href = "/")}
-            className="mt-4 px-4 py-2 bg-[#E387A1] text-white rounded"
-          >
-            메인으로 돌아가기
-          </button>
-        </div>
-      </div>
-    );
-  }
+
 
   return (
     <div className="flex flex-col items-center">

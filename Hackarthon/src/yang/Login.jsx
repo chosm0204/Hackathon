@@ -19,7 +19,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://43.203.141.38:8080/api/users/login",
+        "https://daymaker.sku-sku.com/api/users/login",
         {
           email,
           password,
