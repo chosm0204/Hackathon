@@ -12,6 +12,7 @@ import Course from "./Kim/Course";
 import ScrollTop from "./Kim/ScrollTop";
 import TemAll from "./Kim/TemAll";
 import Temporarily from "./Kim/Temporarily";
+import Why from "./yang/Why";
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
         {/* 상세/코스 페이지 */}
         <Route path="/Detail" element={<Detail />} />
         <Route path="/Course" element={<Course />} />
+        <Route path="/Why" element={<Why />} />
        
 
         

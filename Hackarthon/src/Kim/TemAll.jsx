@@ -809,26 +809,7 @@ const TemAll = () => {
   const parkingData = apiResult?.parkingSpaces || [];
 
   // 데이터가 없을 때 더 상세한 디버그 정보 제공
-  if (!apiResult) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-8">
-        <div className="text-center bg-white p-8 rounded-lg shadow-lg max-w-2xl">
-          <h2 className="text-2xl font-bold text-red-500 mb-4">
-            ⚠️ API 데이터를 찾을 수 없습니다
-          </h2>
-          <p className="text-gray-600 mb-4">
-            백엔드 API 응답이 전달되지 않았습니다.
-          </p>
-          <button
-            onClick={() => (window.location.href = "/")}
-            className="px-6 py-2 bg-[#E387A1] text-white rounded-lg hover:bg-[#d17696] transition-colors"
-          >
-            메인으로 돌아가기
-          </button>
-        </div>
-      </div>
-    );
-  }
+  
 
   // courses가 비어있을 때도 디버그 정보 제공
   if (!courses || courses.length === 0) {

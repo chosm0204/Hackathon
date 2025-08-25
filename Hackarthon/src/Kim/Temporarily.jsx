@@ -83,7 +83,7 @@ const Temporarily = ({ courses: initialCourses, parkingData }) => {
     });
   };
 
-
+ 
 
   return (
     <div className="flex flex-col items-center">
