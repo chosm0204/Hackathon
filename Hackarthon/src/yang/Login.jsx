@@ -36,6 +36,8 @@ const Login = () => {
       // 1초 후 메인 페이지로 이동합니다.
       setTimeout(() => {
         navigate("/");
+        // 페이지 이동 후 새로고침을 추가합니다.
+        window.location.reload(); 
       }, 1000);
       
     } catch (err) {
