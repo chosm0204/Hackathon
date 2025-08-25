@@ -36,6 +36,7 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
             하루를 특별하게!<br />
             마음에 드는 활동을 골라보세요.
           </h1>
+          
           <div className="mt-8 grid grid-cols-2 gap-4">
             {options.map((label, index) => {
               // ✅ prefix 붙이기
@@ -62,10 +63,13 @@ const Main3 = ({ selectedItems, onItemToggle }) => {
                   >
                     {label}
                   </button>
+                  
                 </div>
+                
               );
             })}
           </div>
+          <p className="mt-[10px]  text-gray-400">⚠️2개 이상 고르셔야 정확한 분석이 가능합니다.</p>
         </div>
       </div>
     </div>

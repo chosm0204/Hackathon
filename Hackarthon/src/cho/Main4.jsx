@@ -44,6 +44,7 @@ const Main4 = ({ selectedItems, onItemToggle }) => {
               );
             })}
           </div>
+           <p className="mt-[10px]  text-gray-400">⚠️2개 이상 고르셔야 정확한 분석이 가능합니다.</p>
         </div>
           {/* 이미지 */}
           <div className="flex-1 flex justify-center items-center ml-[80px]">
@@ -52,7 +53,10 @@ const Main4 = ({ selectedItems, onItemToggle }) => {
               alt="음식 일러스트"
               className="w-[470px] h-auto object-contain"
             />
-          </div>
+          
+           
+            </div>
+          
       </div>
     </div>
   );

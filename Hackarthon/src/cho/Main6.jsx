@@ -4,13 +4,13 @@ import React from "react";
 const Main6 = ({ selectedItems, onItemToggle }) => {
   // 안양 지하철역 7곳 (prefix: transport_)
   const stationOptions = [
-    "석수역",
-    "관악역",
-    "안양역",
-    "명학역",
-    "범계역",
-    "평촌역",
-    "인덕원역",
+    "석수",
+    "관악",
+    "안양",
+    "명학",
+    "범계",
+    "평촌",
+    "인덕원",
   ];
 
   // 현재 선택된 역 찾기
@@ -29,11 +29,12 @@ const Main6 = ({ selectedItems, onItemToggle }) => {
       {/* flex 레이아웃 */}
       <div className="flex items-center gap-16">
         {/* 왼쪽 이미지 */}
-        <div className="flex-1 flex justify-center items-center mr-[350px] ">
+        <div className="flex-1 flex justify-center items-center mr-[280px] ">
           <img
-            src="/img/main66666.png"
+            src="/img/circle.png"
             alt="역 일러스트"
-            className="w-[470px] h-[350px] object-contain"
+            className="w-[500px] h-auto object-contain opacity-50"
+            
           />
         </div>
 

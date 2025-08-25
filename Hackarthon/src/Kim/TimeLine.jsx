@@ -10,6 +10,7 @@ const TimeLine = ({ courses, startPoint }) => {
 
             {/* 출발지 */}
             <div className="flex items-center mb-12 relative z-10">
+                
             <div className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center text-white font-bold">
                 S
             </div>
